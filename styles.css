@@ -1,0 +1,177 @@
+/* resets do navegador */
+*{
+    margin: 0;
+    /* sem margem de acordo com o navegador */
+    padding: 0;
+    /* preenchimentos internos */
+    box-sizing: border-box;
+}
+body{
+    background-image: url('./assets/Fundo.jpg');
+    /* fundo */
+    background-position: top center;
+    /* posicionamento topo e centralizado */
+    background-size: 100% auto;
+    /* 100% da largura da tela */
+    background-repeat: no-repeat;
+    /* para nao repetir a imagem mais de uma vez */
+    background-color: #121214;
+}
+
+body *{
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+header{
+    padding-top: 32px;
+    height: calc(120px + 32px);
+    /* todo conteúdo de texto será centralizado e a imagem é lido como 
+    conteúdo de texto */
+}
+header div{
+    /* divs não tem propriedades de texto, portanto text-align não alinham elas */
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    /* fez com que a imagem se alinhasse a "borda" cromática */
+    padding: 4px;
+    /* padding é preenchimento */
+    transition: transform .3s;
+    /* transição para um toque mais suave */
+}
+
+header div:hover{
+    /* quando passar o mouse em cima vai aplicar as propriedades dentro dessa div:hover*/
+    transform: scale(1.1);
+}
+
+header img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* main *{
+    border: 1px solid red;
+} */
+main{
+    max-width: 580px;
+    width: 90%;
+    /* relativo a largura da tela */
+    margin: 32px auto;
+    /* quando há dois valores, os 2 primeiros querem dizer que são os valores de cima e embaixo, o segundo
+    das laterais 32 px -> para cima e embaixo e automatico nas laterais */
+    /* display flex colocaria tudo do lado do outro */
+    display: grid;
+    gap: 24px;
+}
+
+section{
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div{
+    background-color: #2A2634;
+    border-radius: 8px;
+    padding: 32px;
+    /* vale para todos */
+    padding-top: 24px;
+    /* vale só para o top */
+}
+
+section h2{
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.47px;
+}
+
+section p{
+    color: #A1A1AA;
+    /* font-weight: 400;
+    font-size: 16px; mesmos tamanhos do navegador, não precisa por*/
+    letter-spacing: -0.18px;
+}
+
+section ul{
+    list-style: none;
+    display: flex;
+    /* display tem a ver com a visualização das caixas no html 
+    caixa = tag no html */
+    flex-wrap: wrap;
+    /* vai fazer com que as coisas que não encaixarem do lado caírem */
+    gap: 16px;
+    margin-top: 24px
+}
+
+section ul li{
+    transition: transform .3s;
+}
+section ul li:hover{
+    transform: scale(1.1);
+}
+.games-list img{
+    border-radius: 8px;
+    width: 90px;
+}
+.channel-list img{
+    width: 70px;
+    border: 1px solid #443E54;
+    border-radius: 999px;
+    gap: 24px;
+}
+
+/* Animação */
+
+header div{
+    animation: fromTop .7s .2s backwards;
+    /* nome da animação e o tempo o segundo tempo é o delay*/
+}
+
+main section{
+    animation: fromBottom .7s backwards;
+    /* backwards puxa as propriedades e mantem elas mesmas */
+}
+
+main section:nth-child(1){
+    /* Selecionando a seção que quero estilizar, a primeira delas */
+    animation-delay: 0s;
+}
+main section:nth-child(2){
+    /* Selecionando a seção que quero estilizar, a segunda delas */
+    animation-delay: 0.4s;
+}
+main section:nth-child(3){
+    /* Selecionando a seção que quero estilizar, a terceira delas */
+    animation-delay: 0.7s;
+}
+
+@keyframes fromTop{
+    /* @keyframes inicio da animação fromTop é o nome da animação -> nome pode ser o que eu quiser */
+    /* key frame sempre terá de onde começa "from" e onde termina "to" */
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    top{
+        opacity: 1;
+        transform: translateY(0)
+        /* posição 0 é a posição que já está "alo math" */
+    }
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+/* git é o versionamento de código */
